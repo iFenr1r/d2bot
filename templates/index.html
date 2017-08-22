@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+        <head>
+            <title>D2BOT - By Watson</title>
+            <link rel="shortcut icon" type="image/png" href="https://www.thenerdmag.com/wp-content/uploads/2016/07/Anitmage-Dota-2-icon.ico" />
+            <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+            <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+            <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <link rel="stylesheet" href="{{ url_for('static', filename='mainstyle.css') }}">
+            <link rel="stylesheet" href="../static/mainstyle.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <script src="{{ url_for('static', filename='javasc.js') }}"></script>
+            <script src="../static/javasc.js"></script>
+            <style>
+.mytext{
+    height:40px;
+    width:200px;
+    resize: none;
+    border:0;
+    background:whitesmoke;
+}
+#hero{
+    font-size:10px;
+}
+textarea:focus{
+    outline: none;
+}        
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #d4d4d4;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: #d4d4d4;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: #d4d4d4;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: #d4d4d4;
+} 
+            </style>
+        </head>
+    <body id="home" data-spy="scroll" data-target=".navbar" data-offset="60">
+    <script type="text/javascript">
+              $(window).scroll(function() {
+                $(".slideanim").each(function(){
+                  var pos = $(this).offset().top;
+
+                  var winTop = $(window).scrollTop();
+                  if (pos < winTop + 600) {
+                    $(this).addClass("slide");
+                  }
+                });
+              });
+            </script>
+            <script>
+            $(document).ready(function(){
+              // Add smooth scrolling to all links in navbar + footer link
+              $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+               // Make sure this.hash has a value before overriding default behavior
+              if (this.hash !== "") {
+
+                // Prevent default anchor click behavior
+                event.preventDefault();
+
+                // Store hash
+                var hash = this.hash;
+
+                // Using jQuery's animate() method to add smooth page scroll
+                // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                  scrollTop: $(hash).offset().top
+                }, 900, function(){
+
+                  // Add hash (#) to URL when done scrolling (default click behavior)
+                  window.location.hash = hash;
+                  });
+                } // End if
+              });
+            })
+        </script>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span> 
+          </button>
+          <a class="navbar-brand" href="#home"><i class="glyphicon glyphicon-flash"></i>D2BOT</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#destaque">SOBRE</a></li>
+            <li><a href="#contato">CONTATO</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-8 homescreen">
+                <h1 class="text-center"><i class="glyphicon glyphicon-flash"></i>D2BOT</h1>
+                <div id="perfil">
+                  
+                </div>
+            </div>
+            <div class="col-sm-4 frame">
+                <ul class="chat"></ul>
+                <div>
+                    <div class="msj-rta macro" style="margin:auto">                        
+                        <div class="text text-r" style="background:whitesmoke !important">
+                          <form method="post" action="#">
+                            <textarea type="text" class="mytext" name="text" placeholder="Type a message"/></textarea>
+                          </form>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-black slideanim" id="destaque" style="background-image:linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url(https://images5.alphacoders.com/322/322554.jpg)">
+          <div class="row">
+              <div class="col-sm-12">
+                <h1 class="text-center">SOBRE</h1>
+                <p class="text-justify">
+                    <h2 class="text-center">D2BOT</h2>
+                    Chatbot desenvolvido com o intuito de promover uma facilidade no encontro de informações de jogadores de DOTA2 de maneira interativa. 
+                    Foi utilizado tecnologia IBM Watson Conversation, OpenDota API e Python Flask.<br><br>
+                    </p>
+
+                    <img src="../static/ibmwatson.png" height="150" style="margin-right:20px;">
+                    <img src="../static/bluemix.png" height="150" style="margin-right:20px;">
+                    <img src="../static/python-logo.png" height="150" style="margin-right:20px">
+                    <img src="../static/flask.png" height="150" style="margin-right:20px">
+
+                    <br><br>
+                    <p class="text-justify">    
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas tincidunt, sem vel aliquam consequat, massa tellus facilisis dolor, id sodales lectus nisi ut elit. Vivamus dictum, augue vitae cursus faucibus, leo tortor eleifend nisl, ornare tincidunt urna diam in erat. Etiam elementum dui lectus, at cursus nunc mollis lobortis. Vestibulum aliquam justo sed elit viverra, et porttitor erat tristique. In volutpat vehicula varius. Maecenas efficitur maximus tortor laoreet feugiat. Vivamus at suscipit diam, id tincidunt lectus. Morbi in lorem placerat, feugiat enim a, dictum elit. Mauris non ex ipsum. In gravida tempor nibh, ut ornare tellus.    
+                </p>
+              </div>
+            </div>
+          <div class="row">
+              <div class="col-sm-12">
+
+              </div>
+            </div>
+    </div>
+    <div class="container-fluid bg-black slideanim" id="destaque" style="background-image:linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url(https://images5.alphacoders.com/322/322554.jpg)">
+          <div class="row">
+              <div class="col-sm-12">
+                <h1 class="text-center">NOVIDADES</h1>
+                <p class="text-justify">
+                    <h2 class="text-center">D2BOT</h2>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae auctor justo, sit amet pulvinar erat. Quisque vehicula risus non eros pharetra aliquam. In nec ipsum eget orci dictum varius. Vivamus ut lectus tristique, convallis ligula at, tincidunt ex. Cras egestas dui ut vestibulum ultrices. Phasellus scelerisque vestibulum dui lacinia euismod. Vivamus bibendum justo eget leo faucibus, ac convallis purus venenatis. Suspendisse vitae fringilla ex, sit amet lobortis urna. Donec quis gravida turpis. Nullam nec interdum risus. Fusce ac sapien lacus. Integer vel iaculis nulla. Integer non egestas dui, eget dignissim tortor. Pellentesque ac dui tincidunt metus vulputate tincidunt vitae quis velit.
+
+                    Curabitur lectus odio, convallis sit amet dignissim vel, convallis eu magna. Sed sapien leo, interdum in purus eget, aliquet eleifend ante. Vestibulum euismod turpis et mi elementum, id sollicitudin nisi aliquam. Suspendisse tempus ligula vel libero hendrerit, nec efficitur arcu imperdiet. Nam in magna consequat, facilisis urna nec, porta elit. Proin sit amet purus sed diam interdum vestibulum eget id nulla. Curabitur sollicitudin vulputate maximus. Integer ornare vestibulum sapien. Praesent cursus a orci in pellentesque. Cras id commodo velit, sit amet maximus risus. Praesent dictum, augue vitae efficitur euismod, ex purus pellentesque libero, ac lacinia nisi elit vitae justo. Aenean pretium sodales ex, sed congue est efficitur ut.
+
+                    Maecenas vulputate pulvinar vehicula. Morbi sagittis malesuada pharetra. Pellentesque convallis blandit mollis. Etiam blandit justo tortor, id iaculis nibh molestie efficitur. Sed luctus orci ipsum, nec vulputate mauris porttitor a. Etiam at tellus ut nisi ultricies semper nec in lorem. Quisque et metus magna. Sed ac urna scelerisque, placerat dolor in, placerat nunc. Vestibulum semper consequat sapien id aliquet. Vestibulum eget viverra ante. Etiam vel volutpat sem. Vivamus sed ornare sem, et ultricies justo. Donec laoreet suscipit eros non pellentesque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam eu erat tempus, dignissim ex sed, molestie felis. Pellentesque in dolor viverra, ultrices sapien non, porttitor orci.
+
+                    Vivamus pharetra nec eros in iaculis. Aliquam eu nisl non risus porta semper. Nulla eget nibh rutrum sapien vestibulum lacinia sed vel purus. Nunc ut urna non enim lobortis tristique. Sed vulputate dictum ipsum sed scelerisque. Donec sed volutpat nisl. Nunc mollis, enim ut vehicula posuere, tellus dui volutpat lectus, ut faucibus ante nisl quis urna. Cras tempor eros et orci pretium placerat. Aenean faucibus id ex eget pulvinar. Mauris sed leo id libero luctus placerat non ac odio. Nulla sollicitudin, leo at interdum mollis, massa elit ultricies sem, sed aliquam risus leo aliquam eros. Donec et enim erat. Aenean ornare augue et lacus aliquet, ut hendrerit dolor auctor. Aliquam et lobortis metus, vel gravida justo.  
+                </p>
+              </div>
+            </div>
+          <div class="row">
+              <div class="col-sm-12">
+
+              </div>
+            </div>
+    </div>
+    <div class="container-fluid bg-grey slideanim" id="contato">
+      <h2 class="text-center">CONTATO</h2>
+      <div class="row">
+        <div class="col-sm-5">
+          <p>Entre em contato conosco e responderemos em até 24h.</p>
+          <p><span class="glyphicon glyphicon-map-marker"></span> Santo André, SP - Brasil</p>
+          <p><span class="glyphicon glyphicon-phone"></span> +11 999999999</p>
+          <p><span class="glyphicon glyphicon-envelope"></span> contato@ufabcstorm.com.br</p> 
+        </div>
+        <div class="col-sm-7">
+          <div class="row">
+            <div class="col-sm-6 form-group">
+              <input class="form-control" id="name" name="name" placeholder="Nome" type="text" required>
+            </div>
+            <div class="col-sm-6 form-group">
+              <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+            </div>
+          </div>
+          <textarea class="form-control" id="comments" name="comments" placeholder="Comentario" rows="5"></textarea><br>
+          <div class="row">
+            <div class="col-sm-12 form-group">
+              <button class="btn btn-default pull-right" type="submit">ENVIAR</button>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+    <script>
+    $(function(){
+        $('.mytext').keypress(function(e){
+          if(e.which == 13){
+                var text = $('.mytext').val();
+                if (text !== ""){
+                    insertChat("me", text);
+                    $.ajax({
+                      url: '#',
+                      data: $('.mytext'),
+                      dataType: "html",
+                      type: 'POST',
+
+                      success: function(response){
+                        console.log(response);
+                        var s = response.substr(0, 8)
+                        if (s == "<div cla"){
+                          document.getElementById("perfil").innerHTML = response; 
+                        }else{
+                          insertChat("you", response)
+                        }
+                        $('.mytext').val('');
+                      },
+                      error: function(error){
+                        console.log(error)
+                      }
+                   })
+              }
+            
+        }});
+      });
+    </script>    
+</body>
+</html>
